@@ -1,0 +1,7 @@
+print("Traduce a braile")
+#braille=input()
+print("\u265E")
+print("\u2817")
+print("\u0134")
+print("\u0135")
+print("\u0134")

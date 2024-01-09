@@ -15,8 +15,10 @@ $titulo = mb_convert_encoding($titulo, 'windows-1252', 'UTF-8');
 
 
 $pdf = new FPDF();
+$pdf->AddFont('Braille6-ANSI','','Braille6-ANSI.php','tutorial');
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
+$pdf->SetFont('Braille6-ANSI','',16);
 $pdf->Cell(40,10, $titulo);
 $pdf->Ln(25);
 $pdf->MultiCell(0,5,$texto,2);
