@@ -36,6 +36,31 @@
     </p>
     <a href="calendar1.php">Calendario 1</a>
     
+    <form action="/calendariodinamico.php" method="post">
+    <label for="mes">Mes</label>
+    <input type="number" name="mes" id="mes">
+    <label for="papel">Tamaño Papel</label>
+    <select name="papel" id="papel">
+        <option value="A4" selected>A4</option>
+        <option value="Carta">Carta</option>
+    </select>
+    <select name="margenes" id="margenes">
+        <option value="" selected>Sin Margen</option>
+        <option value="20-24-20-20">Sencillo (Sup:20mm, Izq:24mm, Der:20mm, Inf:20mm</option>
+    </select>
+    <select name="color" id="color">
+        <option value="Gris" selected>Gris</option>
+        <option value="Rojo" >Rojo</option>
+        <option value="Azul" >Azul</option>
+        <option value="Verde" >Verde</option>
+        <option value="Random" >Random</option>
+    </select>
+    
+    <label for="texto">Texto &#x2802</label>
+    <textarea name="texto" id="texto" cols="40" rows="30">Carajillo &#x2802 &#x2800 &#x2803  Braille</textarea>
+
+    <input type="submit" value="Enviar">
+</form>
 </body>
 </html>
 
