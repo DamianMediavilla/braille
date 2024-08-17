@@ -113,6 +113,7 @@ $pdf->SetMargins(10,20);
 for($m=0;$m<12;$m++){
     $pdf->AddPage();
     $pdf->Text(120,10, $meses[$m ] . "     " . $year);
+    $pdf->Image("ayelogo.png",180,10,33);
  
 
     $pdf->Ln(2);
@@ -129,16 +130,26 @@ for($m=0;$m<12;$m++){
     //     " ratio: " . $ratio
     //     );
 
+    $pdf->SetFont('Arial','',11);
+    $pdf->Text($pdf->GetX()+1,$pdf->GetY()+8,'Semana');
+    $pdf->Cell($anchoCelda,10,"",'B',0,"",false,"");
+    $pdf->SetFont('Arial','',18);
+    //imprime semana
     for ($columna=0;$columna<7;$columna++){ //imprime los dias de la semana
         $pdf->Cell($anchoCelda,10,$dias[$columna],1,0,"",false,"");
     };
-    
-    $pdf->SetFont('Arial','',11);
-    $pdf->Text($pdf->GetX()+1,$pdf->GetY()+8,'Semana');
-    $pdf->Cell($anchoCelda,10,"",'B',1,"",false,"");
-    $pdf->SetFont('Arial','',18);
-    
+    $pdf->Ln();
+        
+    //$pdf->Ln();
     for ($fila=0;$fila<6;$fila++){
+        $pdf->SetFont('Arial','',11);
+        //$pdf->SetTextColor(0, 0, 255);
+        // $pdf->SetFont('', 'U');
+        //$pdf->Write(5, 'www.fpdf.org', 'http://www.fpdf.org');
+        $pdf->Text($pdf->GetX()+1,$pdf->GetY()+22,$nSemana++);
+        $pdf->Cell($anchoCelda,$altoCelda,'','B',0,'',false,'');
+    
+        $pdf->SetFont('Arial','',18);
         for ($columna=0;$columna<7;$columna++){
             if ($contador<1 or $contador>$nDias){
                 $pdf->SetFillColor(90);
@@ -159,7 +170,7 @@ for($m=0;$m<12;$m++){
                 //  echo $festivo;
                 // echo "verdadero";
                 $pdf->SetFont('Arial','',8);
-                $pdf->Text($pdf->GetX()-$anchoCelda+11,$pdf->GetY()+4,$festivo);
+                $pdf->Text($pdf->GetX()+11,$pdf->GetY()+4,$festivo);
                 $pdf->SetFont('Arial','',18);
                 
                 $pdf->SetTextColor(0);
@@ -168,17 +179,7 @@ for($m=0;$m<12;$m++){
 
             $contador++;
         };
-        //imprime semana
-        
-        $pdf->SetFont('Arial','',11);
-        //$pdf->SetTextColor(0, 0, 255);
-        // $pdf->SetFont('', 'U');
-        //$pdf->Write(5, 'www.fpdf.org', 'http://www.fpdf.org');
-        $pdf->Text($pdf->GetX()+1,$pdf->GetY()+22,$nSemana++);
-        $pdf->Cell($anchoCelda,$altoCelda,'','B',1,'',false,'');
-    
-        $pdf->SetFont('Arial','',18);
-        //$pdf->Ln();
+        $pdf->Ln();
     };
 };
 

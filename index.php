@@ -5,27 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos leen</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <h1>
-            Creador de pdf
+            Crea textos en Braille de una manera rápida y sencilla
         </h1>
     </header>
     <?php include "formulario.php"; ?>
-    <nav>
-    <h3>Links</h3>
-    <?php for ($i=1; $i<8;$i++){
-        echo '<a href="/tutorial/tuto'.$i.'.htm">Tuto'.$i.' explicacion</a>';
-        echo '<br>';
-        echo '<a href="/tutorial/tuto'.$i.'.php">Tuto'.$i.' PDF</a>';
-        echo '<br>';
-    } ?>
-    </nav>
-    <hr>
-    <a href="pruebaBraille.php">PRUEBA</a>
-    <a href="layout28.php">Braille28</a>
-    <a href="pruebaBrailleUnicode.php">PRUEBA Unicode</a>
-    <a href="pruebaCalendario.php">PRUEBA cALENDARIO</a>
+    <?php include "pruebas.php"; ?>
+    
 </body>
 </html>

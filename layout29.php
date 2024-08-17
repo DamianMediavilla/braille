@@ -95,6 +95,40 @@ for ($j=0;$j<=(256/$charXrow);$j++){
     break;
     
 }   
+$pdf->Ln();
+
+// celdas con rotacion y caena inversa
+$textorev=strrev($texto);
+$braillerev=strrev($braille);
+for ($j=0;$j<=(256/$charXrow);$j++){
+    if($printCellNumber){
+
+        for ($i=1;$i<=$charXrow;$i++){
+            $pdf->SetFont('Arial','',10);
+            $pdf->Cell($cellWidth,$cellHeigth,$i+16*$j,1);
+        }
+        $pdf->Ln();
+    }
+    if ($printAsciiChar){
+        for ($i=1;$i<=$charXrow;$i++){
+            $pdf->SetFont('Arial','',10);
+            $pdf->Cell($cellWidth,$cellHeigth, "",1);
+            $pdf->TextWithRotation($pdf->GetX()-2,$pdf->GetY()+$cellHeigth/1.5, $textorev[16*$j-$i], 180,180) ;
+        }
+        $pdf->Ln();
+    }
+    for ($i=1;$i<=$charXrow;$i++){
+        $pdf->SetFont('Braille6-ANSI','',12);
+        $pdf->Cell($cellWidth,$cellHeigth,"",$bordes);
+        $pdf->TextWithRotation($pdf->GetX()-2,$pdf->GetY()+$cellHeigth/1.5, $braillerev[$i-1+16*$j], 180,180) ;
+    }
+    $pdf->Ln();
+    break;
+    
+}
+$pdf->Ln();
+
+// celdas con rotacion
 for ($j=0;$j<=(256/$charXrow);$j++){
     if($printCellNumber){
 
@@ -121,11 +155,14 @@ for ($j=0;$j<=(256/$charXrow);$j++){
     break;
     
 }
+$pdf->Ln();
 $pdf->SetFont('Arial','',10);
-$pdf->TextWithRotation(150,65, $braille, 180,180) ;
-$pdf->SetFont('Braille6-ANSI','',12);
-$pdf->TextWithRotation(150,85, $braille, 180,180) ;
+$pdf->TextWithRotation(150,95, $braille, 180,180) ;
+$pdf->SetFont('Braille6-ANSI','',18);
+$pdf->TextWithRotation(150,115, $braille, 180,180) ;
+$pdf->TextWithRotation(200,135, "1234567890123456789v12345678", 180,180) ;
 $pdf->SetFont('Arial','',10);
+$pdf->TextWithRotation(200 ,145, "1234567890123456789v12345678", 180,180) ;
 $pdf->Cell($cellWidth,$cellHeigth,"",1);
 $pdf->Cell($cellWidth,$cellHeigth,"",1);
 $pdf->Cell($cellWidth,$cellHeigth,"",1);
@@ -142,7 +179,7 @@ $pdf->Cell($cellWidth,$cellHeigth,"",1);
 $pdf->Cell($cellWidth,$cellHeigth,"",1);
 $pdf->Cell($cellWidth*3,$cellHeigth,$pdf->GetX(),1);
 $pdf->Cell($cellWidth*3,$cellHeigth,$pdf->GetY(),1);
-$pdf->SetFont('Braille6-ANSI','',12);
+$pdf->SetFont('Braille6-ANSI','',18);
 $pdf->Cell($cellWidth,$cellHeigth,"",1);
 $pdf->TextWithRotation($pdf->GetX()-2,$pdf->GetY()+$cellHeigth/1.5, "e", 180,180) ;
 // $pdf->TextWithRotation(50,65,'Hello',0,-45);

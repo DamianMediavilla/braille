@@ -57,6 +57,7 @@ $pdf->SetFont('Arial','',11);
 $pdf->Text($pdf->GetX()+1,$pdf->GetY()+8,'Semana');
 $pdf->Cell($anchoCelda,10,"",'B',1,"",false,"");
 $pdf->SetFont('Arial','',18);
+
 for ($fila=0;$fila<6;$fila++){
     for ($columna=0;$columna<7;$columna++){
         if ($contador<1 or $contador>$nDias){
