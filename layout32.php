@@ -9,7 +9,6 @@ function parse_text_braille($text){
     //entrada "123"   salida "*123"
     //entrada "12 3"   salida "*12 *3"
     //entrada "Damo17"   salida ">damo*1*7"
-
     if ($text=="Había"){
         return "↑había";
     }
@@ -18,11 +17,7 @@ function parse_text_braille($text){
         //La palabra tiene dos o mas caracteres.
     }
     $arr=str_split($word);
-
     var_dump($arr);
-
-
-
     return $text;
 }
 
@@ -36,7 +31,6 @@ function test_case(string $value, string $esperable){
     }
     echo "falso<br>";
     return false;
-
 };
 
 test_case("Había","↑había");

@@ -1,0 +1,1 @@
+prueba con un texto simple en minusculas sin caracteres especiales ni acentuados. tampoco incluimos signos especiales de puntuacion ni caracteres tipicos del espano

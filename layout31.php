@@ -16,19 +16,6 @@ function parse_text_braille($text){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 $charXrow=28; //el total de caracteres por renglon
 $cellWidth=6.25;
 $cellHeigth=8;
@@ -129,5 +116,25 @@ foreach ($txt as $line_text){
 }
 
 
-
 $pdf->Output();
+
+/*
+flujo de trabajo
+.Procesamiento de datos.
+- Recibir parametros y texto
+
+
+
+.Qué tengo que enviar de un paso al otro?.
+
+
+.Creacion del pdf.
+dividido en precomp y compaginacion
+precomp:
+limitacion de caracteres, lineasw etc.-
+
+compaginacion:
+apertura del pdf
+
+cierre del pdf
+*/
